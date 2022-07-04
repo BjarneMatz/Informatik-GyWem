@@ -33,12 +33,14 @@ void main() {
 //turns
 ///////
 void rechtsUm(){
+	//turn right
 	for(int i = 0; i < 3; i++){
 		linksUm();
 	}
 }
 
 void umdrehen(){
+	//turn around
 	linksUm();
 	linksUm();
 }
@@ -48,24 +50,28 @@ void umdrehen(){
 //movement
 //////////
 void back(){
+	//moves hamster one field to the back
 	umdrehen();
 	vor();
 	umdrehen();
 }
 
 void left(){
+	//moves hamster one field to the left
 	linksUm();
 	vor();
 	rechtsUm();
 }
 
 void right(){
+	//moves hamster one field to the right
 	rechtsUm();
 	vor();
 	linksUm();
 }
 
 void klettereStufe(int i){
+	//moves hamster 1 field right and up
 	for(int x = 0; x < i; x++){
 		linksUm();
 		vor();
@@ -75,6 +81,7 @@ void klettereStufe(int i){
 }
 
 void run(int i){
+	//let the hamster move forward for the value given
 	for(int x = 0; x < i; x++){
 		if(vornFrei()){
 			vor();
@@ -89,6 +96,7 @@ void run(int i){
 //check counts
 ///////////////
 int zaehleKoernerImMaul(){
+	//returns how many corns are in hamster's mouth
 	int c = 0;
 	while(!maulLeer()){
 		c++;
@@ -101,6 +109,7 @@ int zaehleKoernerImMaul(){
 }
 
 int checkFieldCount(){
+	//returns how many corns are on a field
 	int c = 0;
 	if(kornDa()){
 		while(kornDa()){
@@ -118,6 +127,7 @@ int checkFieldCount(){
 }
 
 boolean vornKorn(){
+	//returns if a corn is infront of the hamster
 	boolean x;
 	vor();
 	x = kornDa();
@@ -131,6 +141,7 @@ boolean vornKorn(){
 //check if box is available
 /////////////////////////////
 boolean linksFrei(){
+	//checks if left is an available field
 	boolean x;
 	linksUm();
 	x = vornFrei();
@@ -139,6 +150,7 @@ boolean linksFrei(){
 }
 
 boolean rechtsFrei(){
+	//checks if right is an available field
 	boolean x;
 	rechtsUm();
 	x = vornFrei();
@@ -147,6 +159,7 @@ boolean rechtsFrei(){
 }
 
 boolean hintenFrei(){
+	//checks if the back is an available field
 	umdrehen();
 	boolean x; 
 	x = vornFrei();
